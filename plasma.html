@@ -480,6 +480,7 @@
     var initialZoom = params.zoom || 6;
     var interactive = params.hasOwnProperty("interactive") ? parseBool(params.interactive) : true;
     var showHeader = params.hasOwnProperty("header") ? parseBool(params.header) : true;
+    var overlayHref = params.hasOwnProperty("href") ? decodeURIComponent(params.href) : null;
     var platforms = parsePlatforms(params);
 
     if (!interactive) {
@@ -490,6 +491,9 @@
       $("#osm-map").css("top", "0");
       $("#osm-map").css("height", "100%");
       $("#beta-ribbon").hide();
+    }
+    if (overlayHref) {
+      $("#osm-map-lock-link").attr("href", overlayHref);
     }
 
     var map = new L.map('osm-map', {
