@@ -43,11 +43,19 @@
     }
     #osm-map-lock {
       position: absolute;
-      z-index: 10004;
+      z-index: 10012;
       left: 0px;
       top: 0px;
       width: 100%;
       height: 0px;
+    }
+    a#osm-map-lock-link {
+      display: block;
+      width: 100%;
+      height:100%;
+    }
+    a#osm-map-lock-link:hover {
+      background: #0001;
     }
 
     #osm-map-pane {
@@ -339,7 +347,9 @@
     </a>
   </header>
   <div id="osm-map"></div>
-  <div id="osm-map-lock"></div>
+  <div id="osm-map-lock">
+    <a href="plasma.html" target="_parent" id="osm-map-lock-link"></a>
+  </div>
   <div id="osm-map-pane">
     <!-- Allow scripts temporarily to initiate follow-up dialog -->
     <iframe id="osm-map-details" sandbox="allow-forms allow-scripts allow-popups allow-top-navigation"></iframe>
@@ -483,7 +493,7 @@
     }
 
     var map = new L.map('osm-map', {
-      center: [51, 10],
+      center: [51.5, 10],
       zoom: initialZoom,
       zoomControl: interactive,
       dragging: interactive,
